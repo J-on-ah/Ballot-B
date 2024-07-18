@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Student Registration - Ballot Box</title>
+  <link rel="stylesheet" href="./style.css">
+
+  <script>
+    function validate() {
+        var finame=document.forms["Fname"]["name"].value;
+        var email = document.forms["Fname"]["EMAIL"].value;
+        var phn=document.forms["Fname"]["phn"].value;
+        var admno=document.forms["Fname"]["admno"].value;
+        var course=document.forms["Fname"]["course"].value;
+        var sem=document.forms["Fname"]["sem"].value;
+        var rollno=document.forms["Fname"]["rollno"].value;
+        var pass = document.forms["Fname"]["pass"].value;
+        var cpass = document.forms["Fname"]["cpass"].value;
+       
+
+        if(name==""){
+            alert(" Name required");
+            return false;
+        }
+        if (email == "") {
+            alert("Email Required");
+            return false;
+        }
+    
+        if(phn ==""){
+            alert("Phone number is required");
+            return false;
+        }
+        if(admno ==""){
+            alert("Admission Number  is required");
+            return false;
+        }
+        alert(course);
+        if(course ==""){
+            alert("Course is required");
+            return false;
+        }
+        if(sem ==""){
+            alert("Semster is required");
+            return false;
+        }
+        if(rollno ==""){
+            alert("Roll Number is required");
+            return false;
+        }
+      
+        if (pass == "") {
+            alert("Password Required");
+            return false;
+        }
+        if (cpass == "") {
+            alert("please confirm password");
+            return false;
+        }
+
+    }
+</script>
+  
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="login-box" style="margin-top: 80px;">
+  <h2>Student Registration</h2>
+  <form action="regaction.php" method="POST" name="fname" onsubmit="return validate()">
+
+
+    <div class="user-box">
+      <input type="text" name="name" required="" pattern="^[A-Za-z\s'-]{2,40}$">
+      <label>Full name</label>
+    </div>
+    <div class="user-box">
+      <input type="email" name="Email" required="">
+      <label>Email</label>
+    </div>
+    
+    <div class="user-box">
+		<input type="number" name="phn" min="6000000000" max="9999999999" required="" pattern="^\d{10}$">
+      <label>Phone</label>
+    </div>
+    <div class="user-box">
+      <input type="number" name="admno" required="" pattern="^\d{4}$">
+        <label>Admission Number</label>
+    </div>
+
+    <div class="user-box">
+        <select class=""  name="course" required>
+          <option value="" selected hidden>Course</option>
+          <option value="BCA">BCA</option>
+          <option value="BBA">BBA</option>
+          <option value="B.COM">B.Com Computer Application</option>
+          <option value="B.sc">B.Sc Electronics</option>
+          <option value="BA">BA English with Journalism</option>
+          <option value="M.Com">M.Com</option>
+          <option value="M.Sc Electronics">M.Sc Electronics</option>
+          <option value="M.Sc computer science">M.Sc computer science</option>
+        </select>
+      
+    </div>
+
+    <div class="user-box">
+      <input type="number" name="sem" min="1" max="6" required="">
+        <label>Semester</label>
+    </div>
+
+    <div class="user-box">
+      <input type="number" name="rollno" min="1" max="100" required="">
+        <label>Roll Number</label>
+    </div>
+
+    <div class="user-box">
+        <input type="password" name="pass" required="" >
+        <label>Password</label>
+    </div>
+
+      <div class="user-box">
+        <input type="password" name="cpass" required="" >
+    
+     
+      <label>Confirm Password</label>
+    </div>
+
+
+   
+	<a class="button">
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<input type="submit" style="background-color: transparent; border: 0; color:white;font-size: 16px;" value="Register">
+	  </a>
+  </form>
+
+  <div class="text-center" style="align-items: center;">
+    <a style="color:rgb(138, 171, 199);text-decoration: none;margin-left: 27%;font-size: small;" href="index.html">Already have an account?</a>
+  </div>
+</div>
+<!-- partial -->
+  
+</body>
+</html>

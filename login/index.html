@@ -1,0 +1,70 @@
+ 
+ 
+ <!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Student Login-Ballot Box</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div class="login-box">
+  <h2>Login</h2>
+  <form action="logaction.php" method="POST" onsubmit="return validateForm();">
+    <div class="user-box">
+      <input type="text" name="Email" pattern="[^']*[^']*" required>
+      <label>Email</label>
+    </div>
+    
+    <div class="user-box">
+      <input type="password" name="pass" pattern="[^']*[^']*" required>
+      <label>Password</label>
+    </div>
+    
+    <a class="button">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+      <input type="submit" style="background-color: transparent; border: 0; color:white; font-size: 16px;" value="Submit">
+    </a>
+  
+    <div class="text-center" style="align-items: center;">
+      <a style="color:rgb(138, 171, 199); text-decoration: none; margin-left: 27%; font-size: small;" href="signup.html">Don't have an account?</a>
+    </div>
+  </form>
+  
+  <script>
+  function validateForm() {
+    var emailInput = document.querySelector('input[name="Email"]');
+    var passwordInput = document.querySelector('input[name="pass"]');
+    
+    var emailPattern = emailInput.getAttribute('pattern');
+    var passwordPattern = passwordInput.getAttribute('pattern');
+    
+    var emailValue = emailInput.value;
+    var passwordValue = passwordInput.value;
+  
+    var emailRegex = new RegExp(emailPattern);
+    var passwordRegex = new RegExp(passwordPattern);
+  
+    if (!emailRegex.test(emailValue)) {
+      alert('Invalid email format. Please enter a valid email address.');
+      return false;
+    } else if (!passwordRegex.test(passwordValue)) {
+      alert('Invalid password format. Please follow the password pattern.');
+      return false;
+    }
+    
+    // If both inputs are valid, the form will be submitted.
+    return true;
+  }
+  </script>
+  
+</div>
+<!-- partial -->
+  
+</body>
+</html>
